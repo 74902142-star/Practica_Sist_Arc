@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: "Segoe UI", Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #333333; 
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+        .header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .header h2 {
+            font-size: 18px;
+            font-weight: normal;
+            opacity: 0.9;
+        }
+        .header h3 {
+            font-size: 16px;
+            margin-top: 15px;
+            color: #ffeb3b;
+        }
+        .content {
+            padding: 30px;
+        }
+        .urgent-box {
+            background-color: #ffebee;
+            border-left: 5px solid #c62828;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        .urgent-box h3 {
+            color: #c62828;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .urgent-box p {
+            margin-bottom: 10px;
+        }
+        .info-box {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .info-box h4 {
+            color: #1a237e;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border-bottom: 2px solid #1a237e;
+            padding-bottom: 8px;
+        }
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .info-table td {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .info-table td:first-child {
+            font-weight: bold;
+            width: 200px;
+        }
+        .badge-danger {
+            background-color: #c62828;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .badge-days {
+            background-color: #c62828;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .carpetas-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .carpetas-table th {
+            background-color: #1a237e;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+        .carpetas-table td {
+            padding: 10px 12px;
+            border: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+        .carpetas-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .warning-box {
+            background-color: #fff3e0;
+            border: 1px solid #ff9800;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        .warning-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+        .signature {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .signature p {
+            margin-bottom: 5px;
+        }
+        .contact-info {
+            background-color: #e8eaf6;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        .footer {
+            background-color: #e0e0e0;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+        }
+        .footer p {
+            margin-bottom: 5px;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .text-danger {
+            color: #c62828;
+        }
+        .fw-bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏛️ MINISTERIO PÚBLICO</h1>
+            <h2>Sistema de Archivo Fiscal</h2>
+            <h3>📋 NOTA DE DEVOLUCIÓN - PRÉSTAMO VENCIDO</h3>
+        </div>
+        
+        <div class="content">
+            <div class="urgent-box">
+                <h3>⚠️ URGENTE - ACCIÓN INMEDIATA REQUERIDA</h3>
+                <p>El préstamo de carpetas fiscales detallado a continuación ha <strong>EXCEDIDO EL PLAZO</strong> establecido para su devolución.</p>
+                <p style="font-size: 16px; margin-top: 15px;">Se solicita la <strong>DEVOLUCIÓN INMEDIATA</strong> de las carpetas fiscales.</p>
+            </div>
+            
+            <div class="info-box">
+                <h4>📊 DATOS DEL PRÉSTAMO</h4>
+                <table class="info-table">
+                    <tr>
+                        <td>Número de Guía:</td>
+                        <td><span class="badge-danger">PREST-001</span></td>
+                    </tr>
+                    <tr>
+                        <td>Dependencia Solicitante:</td>
+                        <td><strong>Fiscalía Penal 1</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Usuario Solicitante:</td>
+                        <td>Administrador</td>
+                    </tr>
+                    <tr>
+                        <td>Fecha de Préstamo:</td>
+                        <td>13/04/2026</td>
+                    </tr>
+                    <tr>
+                        <td>Fecha de Devolución Esperada:</td>
+                        <td>20/04/2026</td>
+                    </tr>
+                    <tr>
+                        <td>Días de Vencimiento:</td>
+                        <td><span class="badge-days">10 DÍAS</span></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h4 style="color: #1a237e; margin-bottom: 15px;">📁 CARPETAS PENDIENTES DE DEVOLUCIÓN</h4>
+            <table class="carpetas-table">
+                <thead>
+                    <tr>
+                        <th>Número de Carpeta</th>
+                        <th>Imputado</th>
+                        <th>Delito</th>
+                        <th>Ubicación Física</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>FISC-2026-001</strong></td>
+                        <td>Juan Pérez González</td>
+                        <td>Robo Agravado</td>
+                        <td>Estante A-1 - Bandeja 1</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FISC-2026-002</strong></td>
+                        <td>María López Ramírez</td>
+                        <td>Estafa</td>
+                        <td>Estante B-2 - Bandeja 3</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FISC-2026-003</strong></td>
+                        <td>Carlos Ruiz Mendoza</td>
+                        <td>Homicidio Simple</td>
+                        <td>Estante A-3 - Bandeja 5</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FISC-2026-004</strong></td>
+                        <td>Ana Torres Vega</td>
+                        <td>Lavado de Activos</td>
+                        <td>Estante C-1 - Bandeja 2</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="warning-box">
+                <h4>⚖️ IMPORTANTE</h4>
+                <p>El incumplimiento en la devolución de carpetas fiscales puede acarrear responsabilidad administrativa, conforme al Reglamento Interno del Ministerio Público.</p>
+                <p style="margin-top: 10px;">Si las carpetas ya fueron devueltas, por favor ignore este mensaje y comuníquese con Archivo Central para actualizar el registro correspondiente.</p>
+            </div>
+            
+            <div class="signature">
+                <p>Atentamente,</p>
+                <p style="margin-top: 20px;"><strong>_________________________________</strong></p>
+                <p><strong>Responsable de Archivo Central</strong></p>
+                <p>Ministerio Público</p>
+                
+                <div class="contact-info">
+                    <p>📞 Teléfono: (01) 625-5555 Anexo 1234</p>
+                    <p>📧 Correo: archivo.central@mp.gob.pe</p>
+                    <p>📍 Dirección: Av. Abancay Cdra. 5, Cercado de Lima</p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 30px; font-style: italic; color: #999; font-size: 12px; text-align: center;">
+                <small>Este mensaje ha sido generado automáticamente por el Sistema de Archivo Fiscal.<br>
+                Fecha de generación: 30/04/2026 04:39:02</small>
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>© 2026 Ministerio Público - Sistema de Archivo Fiscal v1.0</p>
+            <p>Este es un mensaje automático. Por favor no responda a este correo.</p>
+            <p>Para consultas, comuníquese con Archivo Central.</p>
+        </div>
+    </div>
+</body>
+</html>
