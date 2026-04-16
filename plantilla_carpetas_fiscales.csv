@@ -1,0 +1,17 @@
+﻿numero_carpeta,imputado,delito,agravado,estado,ubicacion_fisica,observaciones
+FISC-2026-001,Juan Pérez González,Robo Agravado,Si,Activo,Estante A-1 - Bandeja 1,Caso en investigación preliminar
+FISC-2026-002,María López Ramírez,Estafa,No,Activo,Estante B-2 - Bandeja 3,Audiencia programada 15/04/2026
+FISC-2026-003,Carlos Ruiz Mendoza,Homicidio Simple,No,Activo,Estante A-3 - Bandeja 5,Esperando peritaje balístico
+FISC-2026-004,Ana Torres Vega,Lavado de Activos,Si,Activo,Estante C-1 - Bandeja 2,Investigación con reserva
+FISC-2026-005,Pedro Sánchez Díaz,Violencia Familiar,Si,Activo,Estante D-2 - Bandeja 4,Medidas de protección vigentes
+FISC-2026-002,María López Ramírez,Estafa,No,Activo,Estante B-2 - Bandeja 3,⚠️ DUPLICADO INTENCIONAL - Este registro actualizará el anterior
+FISC-2026-006,Luisa Fernández Castro,Falsificación Documental,No,Activo,Estante E-1 - Bandeja 1,Pericia grafotécnica en curso
+FISC-2026-007,Roberto Gómez Luna,Tráfico Ilícito de Drogas,Si,Activo,Estante F-3 - Bandeja 2,Investigación preliminar
+FISC-2026-008,Sandra Rojas Paz,Apropiación Ilícita,No,Activo,Estante G-2 - Bandeja 4,En espera de documentos
+FISC-2026-009,Miguel Ángel Castro,Secuestro,Si,Activo,Estante H-1 - Bandeja 3,Caso en etapa de instrucción
+FISC-2026-010,Diana Morales León,Fraude Informático,No,Activo,Estante I-4 - Bandeja 1,Pericia informática solicitada
+FISC-2026-011,Oscar Ruiz Paredes,Cohecho,Si,Activo,Estante J-2 - Bandeja 5,Investigación fiscal
+FISC-2026-012,Carmen Vega Soto,Lesiones Graves,No,Activo,Estante K-1 - Bandeja 2,Certificado médico pendiente
+FISC-2026-013,Ricardo Palma Flores,Extorsión,Si,Activo,Estante L-3 - Bandeja 4,Víctima en protección
+FISC-2026-014,Sofía Mendoza Ruiz,Usurpación,No,Activo,Estante M-2 - Bandeja 1,Desalojo programado
+FISC-2026-015,Alberto Núñez Díaz,Peculado,Si,Activo,Estante N-1 - Bandeja 3,Auditoría en curso
