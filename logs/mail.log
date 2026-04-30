@@ -1,0 +1,22 @@
+[2026-04-14 04:37:58] [INFO] Mailer configurado correctamente
+[2026-04-14 04:38:01] [ERROR] Intento 1 fallido: SMTP Error: Could not authenticate.
+[2026-04-14 04:38:08] [ERROR] Intento 2 fallido: SMTP Error: Could not authenticate.
+[2026-04-14 04:38:15] [ERROR] Intento 3 fallido: SMTP Error: Could not authenticate.
+[2026-04-30 04:38:31] [INFO] Mailer configurado correctamente
+[2026-04-30 04:38:33] [ERROR] Intento 1 fallido: SMTP Error: Could not authenticate.
+[2026-04-30 04:38:40] [ERROR] Intento 2 fallido: SMTP Error: Could not authenticate.
+[2026-04-30 04:38:47] [ERROR] Intento 3 fallido: SMTP Error: Could not authenticate.
+[2026-04-30 04:39:02] [INFO] Mailer configurado correctamente
+[2026-04-30 04:39:05] [ERROR] Intento 1 fallido: SMTP Error: Could not authenticate.
+[2026-04-30 04:39:11] [ERROR] Intento 2 fallido: SMTP Error: Could not authenticate.
+[2026-04-30 04:39:18] [ERROR] Intento 3 fallido: SMTP Error: Could not authenticate.
+[2026-04-30 04:39:53] [INFO] Mailer configurado correctamente
+[2026-04-30 04:39:55] [ERROR] Intento 1 fallido: SMTP Error: Could not authenticate.
+[2026-04-30 04:40:02] [ERROR] Intento 2 fallido: SMTP Error: Could not authenticate.
+[2026-04-30 04:40:09] [ERROR] Intento 3 fallido: SMTP Error: Could not authenticate.
+[2026-04-30 04:41:36] [INFO] Mailer configurado correctamente
+[2026-04-30 04:41:38] [ERROR] Intento 1 fallido: SMTP Error: Could not authenticate.
+[2026-04-30 04:41:44] [ERROR] Intento 2 fallido: SMTP Error: Could not authenticate.
+[2026-04-30 04:41:51] [ERROR] Intento 3 fallido: SMTP Error: Could not authenticate.
+[2026-04-30 04:58:41] [INFO] Correo enviado a: maycolccq@gmail.com - Guía: PREST-004
+[2026-04-30 05:00:46] [INFO] Correo enviado a: maycolccq@gmail.com - Guía: PREST-001

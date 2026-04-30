@@ -9,7 +9,8 @@
             </div>
             <div class="col-md-4 text-md-end">
                 <small>
-                    Usuario: <?php echo $_SESSION['usuario_nombre'] ?? 'Invitado'; ?>
+                    <i class="bi bi-person-check"></i> 
+                    Usuario: <?php echo htmlspecialchars($_SESSION['usuario_nombre'] ?? 'Invitado'); ?>
                 </small>
             </div>
         </div>

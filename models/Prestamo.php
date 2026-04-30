@@ -21,8 +21,8 @@ class Prestamo {
             // Insertar préstamo
             $query = "INSERT INTO " . $this->table . " 
                       (numero_guia, dependencia_id, usuario_solicitante, fecha_prestamo, 
-                       fecha_devolucion_esperada, estado, usuario_registro)
-                      VALUES (:guia, :dep, :sol, CURDATE(), DATE_ADD(CURDATE(), INTERVAL :plazo DAY), 'Activo', :reg)";
+                       fecha_devolucion_esperada, estado, usuario_registro, observaciones)
+                      VALUES (:guia, :dep, :sol, CURDATE(), DATE_ADD(CURDATE(), INTERVAL :plazo DAY), 'Activo', :reg, :obs)";
             
             $stmt = $this->conn->prepare($query);
             $stmt->bindParam(':guia', $numero_guia);
@@ -30,6 +30,8 @@ class Prestamo {
             $stmt->bindParam(':sol', $datos['usuario_solicitante']);
             $stmt->bindParam(':plazo', $datos['plazo']);
             $stmt->bindParam(':reg', $_SESSION['usuario_id']);
+            $obs = $datos['observaciones'] ?? '';
+            $stmt->bindParam(':obs', $obs);
             $stmt->execute();
             
             $prestamo_id = $this->conn->lastInsertId();
@@ -92,7 +94,7 @@ class Prestamo {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // GENERAR NOTA DE DEVOLUCIÓN (Requerimiento 6)
+    // GENERAR NOTIFICACIÓN (Requerimiento 6)
     public function generarNotificacion($prestamo_id, $tipo = 'Vencimiento') {
         $query = "INSERT INTO notificacion (prestamo_id, tipo, fecha_generacion, contenido, usuario_generacion)
                   VALUES (:pid, :tipo, CURDATE(), :contenido, :user)";
@@ -106,6 +108,51 @@ class Prestamo {
         $stmt->bindParam(':user', $_SESSION['usuario_id']);
         
         return $stmt->execute();
+    }
+
+    // OBTENER CARPETAS POR PRÉSTAMO
+    public function obtenerCarpetasPorPrestamo($prestamo_id) {
+        $query = "SELECT c.* 
+                  FROM detalle_prestamo dp
+                  JOIN carpeta_fiscal c ON dp.carpeta_id = c.id
+                  WHERE dp.prestamo_id = :pid AND dp.estado = 'Prestado'";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':pid', $prestamo_id);
+        $stmt->execute();
+        
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // OBTENER PRÉSTAMO POR ID
+    public function obtenerPorId($id) {
+        $query = "SELECT p.*, d.nombre as dependencia_nombre,
+                         u.nombre as solicitante_nombre,
+                         u.email as solicitante_email
+                  FROM " . $this->table . " p
+                  JOIN dependencia d ON p.dependencia_id = d.id
+                  JOIN usuario u ON p.usuario_solicitante = u.id
+                  WHERE p.id = :id";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    // OBTENER TODOS LOS PRÉSTAMOS
+    public function obtenerTodos() {
+        $query = "SELECT p.*, d.nombre as dependencia_nombre,
+                         u.nombre as solicitante_nombre,
+                         (SELECT COUNT(*) FROM detalle_prestamo WHERE prestamo_id = p.id) as total_carpetas
+                  FROM " . $this->table . " p
+                  JOIN dependencia d ON p.dependencia_id = d.id
+                  JOIN usuario u ON p.usuario_solicitante = u.id
+                  ORDER BY p.fecha_prestamo DESC";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     // REPORTE: Carpetas prestadas por dependencia (Requerimiento 7)
@@ -144,21 +191,6 @@ class Prestamo {
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    // Obtener préstamo por ID
-    public function obtenerPorId($id) {
-        $query = "SELECT p.*, d.nombre as dependencia_nombre,
-                         u.nombre as solicitante_nombre
-                  FROM " . $this->table . " p
-                  JOIN dependencia d ON p.dependencia_id = d.id
-                  JOIN usuario u ON p.usuario_solicitante = u.id
-                  WHERE p.id = :id";
-        
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
 ?>

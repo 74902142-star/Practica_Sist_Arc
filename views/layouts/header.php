@@ -9,46 +9,49 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php">
+                    <a class="nav-link <?php echo ($_GET['page'] ?? '') == 'dashboard' || ($_GET['page'] ?? '') == '' ? 'active' : ''; ?>" href="index.php">
                         <i class="bi bi-house"></i> Inicio
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?page=buscar">
+                    <a class="nav-link <?php echo ($_GET['page'] ?? '') == 'buscar' ? 'active' : ''; ?>" href="?page=buscar">
                         <i class="bi bi-search"></i> Buscar Carpeta
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?page=registrar">
+                    <a class="nav-link <?php echo ($_GET['page'] ?? '') == 'registrar' ? 'active' : ''; ?>" href="?page=registrar">
                         <i class="bi bi-plus-circle"></i> Registrar
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?page=importar">
+                    <a class="nav-link <?php echo ($_GET['page'] ?? '') == 'importar' ? 'active' : ''; ?>" href="?page=importar">
                         <i class="bi bi-file-excel"></i> Carga Masiva
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?page=prestamo">
+                    <a class="nav-link <?php echo ($_GET['page'] ?? '') == 'prestamo' ? 'active' : ''; ?>" href="?page=prestamo">
                         <i class="bi bi-journal-plus"></i> Préstamo
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-warning" href="?page=alertas">
+                    <a class="nav-link <?php echo ($_GET['page'] ?? '') == 'alertas' ? 'active' : ''; ?>" href="?page=alertas">
                         <i class="bi bi-exclamation-triangle"></i> Alertas
                         <?php
                         // Contar vencidos para badge
-                        require_once __DIR__ . '/../../models/Prestamo.php';
-                        $prestamo = new Prestamo();
-                        $vencidos = $prestamo->detectarVencimientos();
-                        $total_vencidos = count($vencidos);
-                        if ($total_vencidos > 0): ?>
-                            <span class="badge bg-danger"><?php echo $total_vencidos; ?></span>
-                        <?php endif; ?>
+                        if (file_exists(__DIR__ . '/../../models/Prestamo.php')) {
+                            require_once __DIR__ . '/../../models/Prestamo.php';
+                            $prestamoNav = new Prestamo();
+                            $vencidosNav = $prestamoNav->detectarVencimientos();
+                            $total_vencidos_nav = count($vencidosNav);
+                            if ($total_vencidos_nav > 0): ?>
+                                <span class="badge bg-danger"><?php echo $total_vencidos_nav; ?></span>
+                            <?php endif;
+                        }
+                        ?>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?page=reportes">
+                    <a class="nav-link <?php echo ($_GET['page'] ?? '') == 'reportes' ? 'active' : ''; ?>" href="?page=reportes">
                         <i class="bi bi-bar-chart"></i> Reportes
                     </a>
                 </li>
@@ -57,8 +60,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
                         <i class="bi bi-person-circle"></i>
-                        <?php echo $_SESSION['usuario_nombre'] ?? 'Usuario'; ?>
-                        <span class="badge bg-secondary"><?php echo $_SESSION['usuario_rol'] ?? ''; ?></span>
+                        <?php echo htmlspecialchars($_SESSION['usuario_nombre'] ?? 'Usuario'); ?>
+                        <span class="badge bg-secondary"><?php echo htmlspecialchars($_SESSION['usuario_rol'] ?? ''); ?></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Mi Perfil</a></li>

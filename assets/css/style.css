@@ -24,12 +24,18 @@ body {
     background-color: var(--primary) !important;
 }
 
+.navbar-nav .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
 /* Cards */
 .card {
     border: none;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 20px;
 }
 
 .card:hover {
@@ -41,11 +47,26 @@ body {
     font-weight: 600;
 }
 
+/* Dashboard Stats Cards */
+.card.bg-primary, .card.bg-success, .card.bg-warning, .card.bg-secondary {
+    transition: all 0.3s ease;
+}
+
+.card.bg-primary:hover, .card.bg-success:hover, 
+.card.bg-warning:hover, .card.bg-secondary:hover {
+    transform: translateY(-5px);
+}
+
 /* Tablas */
 .table th {
     background-color: #f8f9fc;
     font-weight: 600;
     border-bottom-width: 2px;
+    white-space: nowrap;
+}
+
+.table td {
+    vertical-align: middle;
 }
 
 .table-hover tbody tr:hover {
@@ -77,53 +98,16 @@ body {
     border-color: var(--primary-dark);
 }
 
-.btn-lg {
-    padding: 12px 24px;
-    font-size: 1.1rem;
-}
-
-/* Formularios */
-.form-control, .form-select {
-    border-radius: 8px;
-    border: 1px solid #dee2e6;
-    padding: 10px 12px;
-}
-
-.form-control:focus, .form-select:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.1);
-}
-
-/* Alertas */
-.alert {
-    border-radius: 10px;
-    border: none;
-}
-
 /* Footer */
 footer {
     background-color: white !important;
     border-top: 1px solid #e0e0e0;
 }
 
-/* Utilidades */
-.cursor-pointer {
-    cursor: pointer;
-}
-
-.text-primary-custom {
-    color: var(--primary);
-}
-
-.bg-primary-custom {
-    background-color: var(--primary);
-}
-
 /* Responsive */
 @media (max-width: 768px) {
-    .btn-lg {
-        padding: 8px 16px;
-        font-size: 1rem;
+    .table-responsive {
+        font-size: 0.9rem;
     }
     
     .card-header h4, .card-header h5 {
